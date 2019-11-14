@@ -1,25 +1,24 @@
+const {isValidTransition} = require('./valid-transition')
+const {gameIsTie} = require('./game-is-tie')
+const {isValidBoard} = require('./is-valid')
+const {calculateWinner} = require('./calculate-winner')
+
 class Game {
   constructor() {
     this.board = [
       [null, null, null],
       [null, null, null],
       [null, null, null]
-    ]
+    ],
+    this.isValidBoard = isValidBoard
   }
 }
 
-const board = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+const validBoard = [
+  ['x', null, null],
+  [null, 'o', null],
+  [null, null, null]
 ]
 
-const row = [1,2,3]
-
-console.log(board.includes([1,2,3]))
-
-// console.log([0, 1, 2].map(n => board.map(row => row[n])))
-// console.log([0,1,2].map(n=> board[n][n]))
-// console.log([0,1,2].map(n=> board[n][2-n]))
-
-// console.log('a' === 'b' || 'a' ? 'true' : 'false')
+const newGame = new Game()
+console.log(newGame.isValidBoard(validBoard))
